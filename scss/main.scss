@@ -1,0 +1,302 @@
+//------ variables ----------
+
+$light-text: #606060 ;
+
+
+//-------  Mixins  -----------
+
+@mixin sectionHeader (){
+    .section-header {
+        border-bottom: 1px solid #000;
+        height: 80px;
+        margin-bottom: 40px;
+        display: flex;
+
+        h2{
+            margin: auto 0;
+        }
+    }
+};
+
+@mixin section (){
+    padding: 15px 15px; 
+    font-size: 18px;
+};
+
+@mixin card() {
+    box-shadow: 2px 2px 20px #bdbcbc;
+    border-radius: 5px;
+    margin: 35px auto ;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+// -------------------------------------
+
+
+*{
+    box-sizing: border-box; 
+    margin:0;
+    padding:0 ;
+}
+
+body {
+    padding-top: 65px;
+}
+
+.contain {
+    margin: 0 35px;
+}
+
+@media (min-width: 960px) {
+    .contain {
+        margin: 0 60px;
+    }
+}
+
+@media (min-width: 1140px) {
+    .contain {
+        margin: 0 120px;
+    }
+}
+
+//-------  nav  ---------
+
+.navbar {   
+    box-shadow: 2px 0px 10px #262626;
+    display: flex;
+
+    a {
+    color: #000;  
+    
+        &:hover {
+            text-decoration: none;
+            color: #000;
+        }
+    }
+
+    h2 {
+        margin: auto 20px;
+        line-height: 70px;
+    }
+
+    .navbar-nav{
+        display: flex;
+        justify-content: flex-end ;
+        font-size: 18px; 
+        flex: 1;
+        text-align: center;
+
+        li a {
+            text-decoration:none;
+            margin: auto 10px ;
+            padding: 10px 20px;
+
+            &:hover {
+                border-bottom: 1px solid #000;  /* changed with the theme color */
+                background: #333;  /* changed with the theme color */
+                color: #fff !important; /* changed with the theme color */
+                /* transition: ease 0.3s all; */
+                border-radius: 20px;
+            }    
+        }
+    }
+
+
+}
+
+
+// ---------------- carousel  -----------------
+
+.carousel-item {
+    height: 650px;
+    padding: 40px 20px;
+    text-align: center;
+    
+    & .text-content {
+        margin: auto 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 21px;
+        font-weight: 400;
+    }
+    
+    //  max-width 500px
+    &:first-child {
+        background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+        background: url("../images/pic01.jpeg")  no-repeat  ;
+        // background-position: 80% 0%; 
+        background-size: auto 100% ; 
+    }
+
+    &:nth-child(2) {
+        background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
+        background: url("../images/pic02.jpeg")  no-repeat ;  
+        background-size: auto 100% ; 
+        background-position: 80% 0%;
+    }
+
+    &:nth-child(3) {
+        background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+        background: url("../images/pic03.jpeg")  no-repeat ; 
+        background-size: auto 100% ; 
+        background-position: 60% 0%; 
+    }
+}
+
+@media (min-width: 500px) {
+    .carousel-item{
+        &:first-child {
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            background: url("../images/pic01.jpeg")  no-repeat  ;
+            background-position: 10% 10%; 
+            background-size: auto 300% ; 
+        }
+    
+        &:nth-child(2) {
+            background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
+            background: url("../images/pic02.jpeg")  no-repeat ;  
+            background-size: auto 250% ; 
+            background-position: 0% 22%;
+        }
+    
+        &:nth-child(3) {
+            background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+            background: url("../images/pic03.jpeg")  no-repeat ; 
+            background-size: auto 250% ; 
+            background-position: 100% 25%; 
+        }
+    }
+}
+
+
+.carousel .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    margin: auto 5px;
+    
+}
+
+
+// ----- About me section - ----- 
+
+.about-section {
+    @include section();
+    @include sectionHeader();
+    
+    ul {
+        margin: 40px 0;
+
+        li{
+            list-style: none;
+            margin: 15px 0;
+
+            .labels {
+                font-size: 19px;
+                font-weight: bold;
+            }
+            
+            .values {
+                font-weight: 500;
+                margin-left: 10px;
+                color: $light-text;
+            }
+        }
+    }
+}
+
+// ------- My Skills section---------------
+
+.skills-section {
+    @include section();
+    @include sectionHeader();
+    
+
+    .card {
+        @include card();
+        
+        h1 {
+            margin: 30px auto 10px auto ;
+        }
+
+        i , img {
+            margin: auto;
+            padding: 20px 30px;
+            border: 4px solid #b1b1b1;
+            border-radius: 50%;
+            
+        }
+    }
+}
+
+// -------- My projects section ----------
+
+.projects-section {
+    @include section();
+    @include sectionHeader();
+
+    .card {
+        @include card();
+
+        .project-card-text {
+            margin: 30px auto 10px auto ;
+            text-align:center; 
+        }
+
+        .icon-div {
+            margin: auto;
+        }
+
+        
+    }
+}
+
+// -------------Contact me section-----------
+.contact-section {
+    @include section();
+    @include sectionHeader();
+
+    .info {
+        display: flex;
+        margin: 15px 0;
+        
+        p {
+           margin-left: 30px; 
+        }
+    }
+}
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
