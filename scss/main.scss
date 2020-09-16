@@ -263,14 +263,28 @@ body {
     @include section();
     @include sectionHeader();
 
-    .info {
-        display: flex;
-        margin: 15px 0;
-        
-        p {
-           margin-left: 30px; 
+    padding: 0px;
+    .contact-info{
+        .info {
+            // display: flex;
+            margin: 15px 0;
+                       
         }
-    }
+    }    
+}
+
+@media (min-width: 780px) {
+    .contact-info{
+        .info {
+            display: flex;
+            margin: 15px 0;
+            
+            p  { 
+               margin-left: 25px;
+               margin-right: 30px; 
+            }            
+        }
+    }    
 }
 
 

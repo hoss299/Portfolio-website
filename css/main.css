@@ -284,6 +284,7 @@ body {
 .contact-section {
   padding: 15px 15px;
   font-size: 18px;
+  padding: 0px;
 }
 
 .contact-section .section-header {
@@ -299,14 +300,20 @@ body {
   margin: auto 0;
 }
 
-.contact-section .info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.contact-section .contact-info .info {
   margin: 15px 0;
 }
 
-.contact-section .info p {
-  margin-left: 30px;
+@media (min-width: 780px) {
+  .contact-info .info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 15px 0;
+  }
+  .contact-info .info p {
+    margin-left: 25px;
+    margin-right: 30px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
